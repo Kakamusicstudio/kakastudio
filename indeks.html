@@ -32,7 +32,6 @@ input:focus,textarea:focus{outline:none;box-shadow:0 0 8px #ffcc33;}
 .music-btn:hover{transform:scale(1.1);}
 footer{padding:20px;font-size:12px;color:#aaa;text-align:center;opacity:0.8;}
 #countdown{font-size:20px;margin-top:12px;letter-spacing:1px;animation:fadeIn 2s;}
-/* CONFETTI */
 .confetti-piece{position:fixed;width:8px;height:8px;background:red;top:0;left:0;opacity:0.8;z-index:9999;animation:fall 5s linear infinite;}
 @keyframes fall{0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(100vh) rotate(360deg);}}
 @keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
@@ -55,7 +54,7 @@ footer{padding:20px;font-size:12px;color:#aaa;text-align:center;opacity:0.8;}
     <div class="overlay"></div>
     <div class="hero-text">
       <p>Undangan Pernikahan</p>
-      <h1>Nama Kaka & Nama Adek</h1>
+      <h1>Kaka & Adek</h1>
     </div>
   </div>
   <div class="section">
@@ -69,7 +68,7 @@ footer{padding:20px;font-size:12px;color:#aaa;text-align:center;opacity:0.8;}
     </div>
     <div class="card">
       <h3>💝 Amplop Digital</h3>
-      <p>BCA 1234567890<br>a.n Nama Mempelai</p>
+      <a class="btn" href="https://link.dana.id/XXXXXXXX" target="_blank">Buka Dana</a>
     </div>
     <div class="card">
       <h3>📖 Buku Tamu</h3>
@@ -98,19 +97,7 @@ function toggleMusic(){if(playing){bgm.pause();playing=false;}else{bgm.play();pl
 const countDownDate=new Date("May 12, 2026 09:00:00").getTime();
 const countdownElem=document.getElementById('countdown');
 setInterval(()=>{const now=new Date().getTime();const distance=countDownDate-now;if(distance<0){countdownElem.innerHTML="Hari H!";return;}const d=Math.floor(distance/(1000*60*60*24));const h=Math.floor((distance%(1000*60*60*24))/(1000*60*60));const m=Math.floor((distance%(1000*60*60))/(1000*60));const s=Math.floor((distance%(1000*60))/1000);countdownElem.innerHTML=`${d} Hari ${h} Jam ${m} Menit ${s} Detik`;},1000);
-
-// CONFETTI
-function launchConfetti(){
-  for(let i=0;i<50;i++){
-    const confetti=document.createElement('div');
-    confetti.className='confetti-piece';
-    confetti.style.left=Math.random()*100+'%';
-    confetti.style.background=`hsl(${Math.random()*360},70%,60%)`;
-    confetti.style.animationDuration=(3+Math.random()*2)+'s';
-    document.body.appendChild(confetti);
-    setTimeout(()=>{confetti.remove();},5000);
-  }
-}
+function launchConfetti(){for(let i=0;i<50;i++){const confetti=document.createElement('div');confetti.className='confetti-piece';confetti.style.left=Math.random()*100+'%';confetti.style.background=`hsl(${Math.random()*360},70%,60%)`;confetti.style.animationDuration=(3+Math.random()*2)+'s';document.body.appendChild(confetti);setTimeout(()=>{confetti.remove();},5000);}}
 </script>
 </body>
 </html>
