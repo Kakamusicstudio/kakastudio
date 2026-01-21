@@ -1,16 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Music Player</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaka Studio Music</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0f0f0f;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.player {
+  max-width: 320px;
+  margin: 20px auto;
+  background: #1c1c1c;
+  border-radius: 16px;
+  padding: 15px;
+  text-align: center;
+}
+
+.cover {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.title {
+  margin: 12px 0;
+  font-weight: bold;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin: 0 5px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+</style>
 </head>
-<body style="background:#111;color:white;text-align:center;padding:20px">
 
-<h3>Kaka Studio 🎵</h3>
+<body>
 
-<audio controls style="width:100%">
-<source src="Mars.mp3" type="audio/mpeg">
-</audio>
+<div class="player">
+  <img id="cover" class="cover" src="cover1.jpg">
+  <div id="title" class="title">Judul Lagu</div>
+
+  <audio id="audio" controls></audio>
+
+  <div class="controls">
+    <button onclick="prev()">⏮</button>
+    <button onclick="next()">⏭</button>
+  </div>
+</div>
+
+<script>
+const songs = [
+  {
+    title: "Mars",
+    file: "Mars.mp3",
+    cover: "cover1.jpg"
+  },
+  {
+    title: "Lagu Kedua",
+    file: "lagu2.mp3",
+    cover: "cover2.jpg"
+  }
+];
+
+let index = 0;
+const audio = document.getElementById("audio");
+const title = document.getElementById("title");
+const cover = document.getElementById("cover");
+
+function loadSong() {
+  audio.src = songs[index].file;
+  title.innerText = songs[index].title;
+  cover.src = songs[index].cover;
+}
+
+function next() {
+  index = (index + 1) % songs.length;
+  loadSong();
+  audio.play();
+}
+
+function prev() {
+  index = (index - 1 + songs.length) % songs.length;
+  loadSong();
+  audio.play();
+}
+
+loadSong();
+</script>
 
 </body>
 </html>
