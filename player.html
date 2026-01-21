@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaka Studio Music</title>
+
+<title>Kaka Studio Playlist</title>
+
+<!-- PREVIEW WHATSAPP -->
+<meta property="og:title" content="🎧 Kaka Studio – Playlist Lagu">
+<meta property="og:description" content="Dengerin semua lagu Kaka Studio. Klik & play.">
+<meta property="og:image" content="https://kakamusicstudio.github.io/kakastudio/cover1.jpg">
+<meta property="og:type" content="website">
 
 <style>
 body {
@@ -14,17 +21,15 @@ body {
 }
 
 .player {
-  max-width: 320px;
-  margin: 20px auto;
-  background: #1c1c1c;
-  border-radius: 16px;
-  padding: 15px;
+  max-width: 360px;
+  margin: auto;
+  padding: 16px;
   text-align: center;
 }
 
 .cover {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .title {
@@ -34,21 +39,21 @@ body {
 
 audio {
   width: 100%;
+}
+
+.list {
   margin-top: 10px;
 }
 
-.controls {
-  margin-top: 10px;
-}
-
-button {
-  background: #333;
+.list button {
+  width: 100%;
+  background: #1f1f1f;
   color: white;
   border: none;
-  padding: 8px 14px;
-  margin: 0 5px;
+  padding: 10px;
+  margin-top: 6px;
   border-radius: 8px;
-  font-size: 16px;
+  text-align: left;
 }
 </style>
 </head>
@@ -61,50 +66,37 @@ button {
 
   <audio id="audio" controls></audio>
 
-  <div class="controls">
-    <button onclick="prev()">⏮</button>
-    <button onclick="next()">⏭</button>
-  </div>
+  <div class="list" id="list"></div>
 </div>
 
 <script>
 const songs = [
-  {
-    title: "Mars",
-    file: "Mars.mp3",
-    cover: "cover1.jpg"
-  },
-  {
-    title: "Bendera sl",
-    file: "10 Bendera ½ Tiang.mp3",
-    cover: "cover2.jpg"
-  }
+  { title: "Mars", file: "Mars.mp3", cover: "cover1.jpg" },
+  { title: "Lagu Kedua", file: "lagu2.mp3", cover: "cover2.jpg" }
 ];
 
 let index = 0;
 const audio = document.getElementById("audio");
 const title = document.getElementById("title");
 const cover = document.getElementById("cover");
+const list = document.getElementById("list");
 
-function loadSong() {
-  audio.src = songs[index].file;
-  title.innerText = songs[index].title;
-  cover.src = songs[index].cover;
-}
-
-function next() {
-  index = (index + 1) % songs.length;
-  loadSong();
+function loadSong(i) {
+  index = i;
+  audio.src = songs[i].file;
+  title.innerText = songs[i].title;
+  cover.src = songs[i].cover;
   audio.play();
 }
 
-function prev() {
-  index = (index - 1 + songs.length) % songs.length;
-  loadSong();
-  audio.play();
-}
+songs.forEach((song, i) => {
+  const btn = document.createElement("button");
+  btn.innerText = "▶ " + song.title;
+  btn.onclick = () => loadSong(i);
+  list.appendChild(btn);
+});
 
-loadSong();
+loadSong(0);
 </script>
 
 </body>
