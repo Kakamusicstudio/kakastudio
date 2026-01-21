@@ -3,58 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Undangan Pernikahan</title>
-
-<meta property="og:title" content="Undangan Pernikahan">
-<meta property="og:description" content="Kami mengundang Anda ke hari bahagia kami">
+<title>Undangan Pernikahan - Elit</title>
+<meta property="og:title" content="Undangan Pernikahan Elit">
+<meta property="og:description" content="Kami mengundang Anda ke pernikahan kami yang istimewa">
 <meta property="og:image" content="cover.jpg">
-<meta property="og:type" content="website">
-
 <style>
-body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:#0f0f14;
-  color:#fff;
-}
-.container{
-  max-width:420px;
-  margin:auto;
-  min-height:100vh;
-}
+/* FONT & RESET */
+body, html{margin:0;padding:0;font-family:'Poppins',sans-serif;background:#0b0b0f;color:#fff;}
+a{text-decoration:none;}
+.container{max-width:420px;margin:auto;min-height:100vh;}
+
+/* OPENING */
+#opening{position:fixed;inset:0;background:#0b0b0f;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:white;}
+#opening button{margin-top:20px;padding:14px 28px;border-radius:14px;border:none;background:linear-gradient(135deg,#ffb347,#ffcc33);color:#000;font-weight:700;font-size:16px;cursor:pointer;transition:0.3s;}
+#opening button:hover{opacity:0.85;}
+
+/* HERO */
 .hero{position:relative;}
-.hero img{width:100%;height:60vh;object-fit:cover;}
-.overlay{position:absolute;inset:0;background:linear-gradient(to top,#0f0f14,transparent);}
-.hero-text{position:absolute;bottom:20px;width:100%;text-align:center;}
-.hero-text h1{margin:0;font-size:28px;}
-.hero-text p{margin:5px 0;font-size:14px;}
+.hero img{width:100%;height:60vh;object-fit:cover;border-radius:18px;}
+.overlay{position:absolute;inset:0;background:linear-gradient(to top,#0b0b0f,transparent);border-radius:18px;}
+.hero-text{position:absolute;bottom:20px;width:100%;text-align:center;animation:fadeIn 1.5s;}
+.hero-text h1{margin:0;font-size:28px;letter-spacing:1px;}
+.hero-text p{margin:5px 0;font-size:14px;letter-spacing:1px;}
+
+/* SECTION */
 .section{padding:24px 20px;text-align:center;}
-.card{background:#1b1b24;border-radius:18px;padding:20px;margin-top:18px;}
-.btn{display:block;background:linear-gradient(135deg,#ffb347,#ffcc33);color:#000;padding:14px;border-radius:14px;text-decoration:none;font-weight:600;margin-top:12px;}
+.card{background:#1b1b24;border-radius:18px;padding:20px;margin-top:18px;box-shadow:0 4px 15px rgba(0,0,0,0.5);}
+.btn{display:block;background:linear-gradient(135deg,#ffb347,#ffcc33);color:#000;padding:14px;border-radius:14px;text-decoration:none;font-weight:600;margin-top:12px;transition:0.3s;}
+.btn:hover{opacity:0.85;}
 input,textarea{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:none;font-family:inherit;}
-.music-btn{position:fixed;top:16px;right:16px;background:#ffcc33;color:#000;border:none;padding:12px;border-radius:50%;z-index:999;}
+.music-btn{position:fixed;top:16px;right:16px;background:linear-gradient(135deg,#ffb347,#ffcc33);color:#000;border:none;padding:12px;border-radius:50%;z-index:999;cursor:pointer;}
 footer{padding:20px;font-size:12px;color:#aaa;text-align:center;}
-#opening{position:fixed;inset:0;background:#0f0f14;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:white;}
-#opening button{margin-top:20px;padding:14px 26px;border-radius:14px;border:none;background:#ffcc33;color:#000;font-weight:bold;font-size:16px;}
+
+/* ANIMATIONS */
+@keyframes fadeIn{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+
+/* COUNTDOWN */
+#countdown{font-size:20px;margin-top:12px;letter-spacing:1px;}
 </style>
 </head>
 <body>
 
-<!-- Layar Pembuka -->
+<!-- OPENING -->
 <div id="opening">
   <h2>Undangan Pernikahan</h2>
   <p>Ketuk untuk membuka undangan</p>
   <button onclick="openInvite()">Buka Undangan</button>
 </div>
 
-<!-- Musik -->
+<!-- MUSIC -->
 <audio id="bgm" loop>
   <source src="Mars.mp3" type="audio/mpeg">
 </audio>
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
-<!-- Konten -->
 <div class="container">
+
+  <!-- HERO -->
   <div class="hero">
     <img src="cover1.jpg">
     <div class="overlay"></div>
@@ -64,12 +69,14 @@ footer{padding:20px;font-size:12px;color:#aaa;text-align:center;}
     </div>
   </div>
 
+  <!-- SECTION -->
   <div class="section">
     <p>Dengan penuh rasa syukur, kami mengundang Anda untuk hadir dan memberikan doa restu pada pernikahan kami.</p>
 
     <div class="card">
       <strong>📅 Minggu, 12 Mei 2026</strong><br>
-      <strong>🕘 09.00 WIB</strong><br><br>
+      <strong>🕘 09.00 WIB</strong>
+      <div id="countdown"></div><br>
       📍 Alamat Acara
       <a class="btn" href="https://maps.google.com" target="_blank">Buka Google Maps</a>
     </div>
@@ -85,32 +92,44 @@ footer{padding:20px;font-size:12px;color:#aaa;text-align:center;}
       <textarea rows="3" placeholder="Ucapan & Doa"></textarea>
       <button class="btn">Kirim</button>
     </div>
+
+    <div class="card">
+      <h3>🖼 Galeri Foto</h3>
+      <img src="cover1.jpg" style="width:100%;margin-top:10px;border-radius:12px;">
+      <img src="cover2.jpg" style="width:100%;margin-top:10px;border-radius:12px;">
+    </div>
+
   </div>
 
-  <footer>
-    Terima kasih atas doa dan restu Anda
-  </footer>
+  <footer>Terima kasih atas doa dan restu Anda</footer>
 </div>
 
 <script>
+// MUSIC
 const bgm = document.getElementById('bgm');
 let playing = false;
-
 function openInvite(){
-  document.getElementById('opening').style.display = 'none';
+  document.getElementById('opening').style.display='none';
   bgm.play();
-  playing = true;
+  playing=true;
+}
+function toggleMusic(){
+  if(playing){bgm.pause();playing=false;}else{bgm.play();playing=true;}
 }
 
-function toggleMusic(){
-  if(playing){
-    bgm.pause();
-    playing = false;
-  }else{
-    bgm.play();
-    playing = true;
-  }
-}
+// COUNTDOWN
+const countDownDate = new Date("May 12, 2026 09:00:00").getTime();
+const countdownElem = document.getElementById('countdown');
+setInterval(()=>{
+  const now = new Date().getTime();
+  const distance = countDownDate - now;
+  if(distance<0){countdownElem.innerHTML="Hari H!";return;}
+  const d=Math.floor(distance/(1000*60*60*24));
+  const h=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+  const m=Math.floor((distance%(1000*60*60))/(1000*60));
+  const s=Math.floor((distance%(1000*60))/1000);
+  countdownElem.innerHTML=`${d} Hari ${h} Jam ${m} Menit ${s} Detik`;
+},1000);
 </script>
 
 </body>
