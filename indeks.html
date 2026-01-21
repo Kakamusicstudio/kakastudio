@@ -169,6 +169,12 @@ document.addEventListener('click', () => {
   bgm.play();
 }, { once: true });
 </script>
+const bgm = document.getElementById('bgm');
+
+function openInvite(){
+  document.getElementById('opening').style.display = 'none';
+  bgm.play();
+}
 
 </body>
 </html>
