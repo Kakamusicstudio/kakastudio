@@ -142,11 +142,12 @@ footer{
 </div>
 
 <script>
-const bgm=document.getElementById('bgm');
-let play=false;
-function toggleMusic(){
-  if(!play){bgm.play();play=true;}else{bgm.pause();play=false;}
-}
+const bgm = document.getElementById('bgm');
+
+document.addEventListener('click', () => {
+  bgm.play();
+}, { once: true });
+
 </script>
 
 </body>
