@@ -1,9 +1,152 @@
-kakastudio/
-├─ index.html        ← UNDANGAN KAWIN
-├─ player.html       ← MUSIC PLAYER
-├─ Mars.mp3
-├─ lagu2.mp3
-├─ cover.jpg
-├─ cover1.jpg
-├─ cover2.jpg
-├─ musik.mp3
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan</title>
+
+<!-- Preview WhatsApp -->
+<meta property="og:title" content="Undangan Pernikahan">
+<meta property="og:description" content="Kami mengundang Anda ke hari bahagia pernikahan kami">
+<meta property="og:image" content="cover.jpg">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#0f0f14;
+  color:#fff;
+}
+.container{
+  max-width:420px;
+  margin:auto;
+  min-height:100vh;
+}
+.hero{
+  position:relative;
+}
+.hero img{
+  width:100%;
+  height:60vh;
+  object-fit:cover;
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,#0f0f14,transparent);
+}
+.hero-text{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+}
+.hero-text h1{margin:0;font-size:28px;}
+.hero-text p{margin:5px 0;font-size:14px;}
+.section{
+  padding:24px 20px;
+  text-align:center;
+}
+.card{
+  background:#1b1b24;
+  border-radius:18px;
+  padding:20px;
+  margin-top:18px;
+}
+.btn{
+  display:block;
+  background:linear-gradient(135deg,#ffb347,#ffcc33);
+  color:#000;
+  padding:14px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:600;
+  margin-top:12px;
+}
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:none;
+  font-family:inherit;
+}
+.music-btn{
+  position:fixed;
+  top:16px;
+  right:16px;
+  background:#ffcc33;
+  color:#000;
+  border:none;
+  padding:12px;
+  border-radius:50%;
+  z-index:999;
+}
+footer{
+  padding:20px;
+  font-size:12px;
+  color:#aaa;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+<audio id="bgm" loop>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+  <div class="hero">
+    <img src="cover.jpg">
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <p>Undangan Pernikahan</p>
+      <h1>Nama Pria & Nama Wanita</h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <p>Dengan penuh rasa syukur, kami mengundang Anda untuk hadir dan memberikan doa restu pada pernikahan kami.</p>
+
+    <div class="card">
+      <strong>📅 Minggu, 12 Mei 2026</strong><br>
+      <strong>🕘 09.00 WIB</strong><br><br>
+      📍 Alamat Acara
+      <a class="btn" href="https://maps.google.com" target="_blank">Buka Google Maps</a>
+    </div>
+
+    <div class="card">
+      <h3>💝 Amplop Digital</h3>
+      <p>BCA 1234567890<br>a.n Nama Mempelai</p>
+    </div>
+
+    <div class="card">
+      <h3>📖 Buku Tamu</h3>
+      <input type="text" placeholder="Nama">
+      <textarea rows="3" placeholder="Ucapan & Doa"></textarea>
+      <button class="btn">Kirim</button>
+    </div>
+  </div>
+
+  <footer>
+    Terima kasih atas doa dan restu Anda
+  </footer>
+
+</div>
+
+<script>
+const bgm=document.getElementById('bgm');
+let play=false;
+function toggleMusic(){
+  if(!play){bgm.play();play=true;}else{bgm.pause();play=false;}
+}
+</script>
+
+</body>
+</html>
