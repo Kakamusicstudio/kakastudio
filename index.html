@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan - Kaka & Adik</title>
+    <title>Undangan Pernikahan - Kakanda & Adinda</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,6 @@
             min-height: 100vh;
         }
 
-        /* Mobile Container */
         .app-container {
             width: 100%;
             max-width: 450px;
@@ -42,8 +41,6 @@
             padding-bottom: 80px;
         }
 
-        /* --- BACKGROUND HANDLING --- */
-        /* Overlay gelap dikurangi menjadi 0.3 agar foto lebih kelihatan */
         .bg-section {
             background-size: cover;
             background-position: center;
@@ -54,21 +51,17 @@
             background-blend-mode: multiply; 
         }
 
-        /* Tipografi dengan Shadow agar terbaca di atas foto */
         h1, h2, h3 { 
             font-family: 'Cinzel', serif; 
             text-transform: uppercase; 
             letter-spacing: 2px;
-            text-shadow: 2px 2px 10px #000; /* Bayangan hitam tebal */
+            text-shadow: 2px 2px 10px #000; 
         }
         
-        p {
-            text-shadow: 1px 1px 5px #000;
-        }
+        p { text-shadow: 1px 1px 5px #000; }
         
-        /* Warna Emas Solid (bukan gradient) agar lebih terbaca di transparan */
         .gold-text {
-            color: #FADD75; /* Emas Terang */
+            color: #FADD75; 
             font-weight: 700;
             text-shadow: 2px 2px 8px #000;
         }
@@ -79,7 +72,6 @@
             text-shadow: 2px 2px 6px #000;
         }
 
-        /* --- SCREENS --- */
         .screen-venue {
             background-image: url('A1.jpg');
             display: flex;
@@ -108,27 +100,24 @@
             border-top: 1px solid #333;
         }
 
-        /* --- COMPONENTS --- */
-        /* Kartu Transparan */
         .glass-card {
-            background: rgba(0, 0, 0, 0.15); /* Sangat transparan */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Border putih tipis */
+            background: rgba(0, 0, 0, 0.15); 
+            border: 1px solid rgba(255, 255, 255, 0.2); 
             padding: 25px;
             margin: 20px 0;
             border-radius: 4px;
-            backdrop-filter: blur(2px); /* Blur sedikit di belakang tulisan */
+            backdrop-filter: blur(2px); 
         }
 
         .details-box p { margin-bottom: 8px; line-height: 1.6; font-size: 0.9rem; }
         .details-box strong { color: #FADD75; }
 
-        /* Tombol */
         .btn-gold {
             display: block;
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            background: rgba(212, 175, 55, 0.85); /* Emas transparan */
+            background: rgba(212, 175, 55, 0.85); 
             color: #000;
             text-decoration: none;
             font-weight: 700;
@@ -147,7 +136,6 @@
         }
         .btn-outline:hover { background: #fff; color: #000; }
 
-        /* Galeri Grid */
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -166,7 +154,6 @@
         }
         .gallery-item:hover img { transform: scale(1.1); }
 
-        /* Navigasi Bawah */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -174,7 +161,7 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 450px;
-            background: rgba(0, 0, 0, 0.8); /* Navigasi transparan gelap */
+            background: rgba(0, 0, 0, 0.8); 
             border-top: 1px solid #444;
             display: flex;
             justify-content: space-around;
@@ -195,9 +182,9 @@
 </head>
 <body>
 
-    <!-- Audio Element (Autoplay Loop) -->
-    <!-- Perhatian: Beberapa browser (terutama iPhone/iPad) mungkin memblokir autoplay karena kebijakan keamanan -->
-    <audio id="myAudio" autoplay loop>
+    <!-- Audio Element -->
+    <!-- playsinline sangat penting untuk iPhone/iPad -->
+    <audio id="myAudio" autoplay loop playsinline>
         <source src="Jazz.mp3" type="audio/mpeg">
     </audio>
 
@@ -207,7 +194,7 @@
         <section id="home" class="bg-section screen-venue">
             <div class="glass-card">
                 <p class="cursive-font" style="font-size: 1.8rem;">The Wedding Of</p>
-                <h1 class="gold-text" style="font-size: 1.6rem; margin: 10px 0;">Kaka<br>&<br>Adik</h1>
+                <h1 class="gold-text" style="font-size: 1.6rem; margin: 10px 0;">Kakanda<br>&<br>Adinda</h1>
                 
                 <div class="details-box" style="margin-top: 20px; text-align: left;">
                     <p><strong>SABTU</strong></p>
@@ -217,7 +204,7 @@
                     <p>09:00 WIB - Selesai</p>
                     <br>
                     <p><strong>LOKASI</strong></p>
-                    <p>Grand Ballroom,<br>The Majestic Hotel<br>Jakarta</p>
+                    <p>Grand Ballroom,<br>The Majestic Hotel<br>Singapore</p>
                 </div>
 
                 <a href="#" class="btn-gold">Lihat Peta</a>
@@ -247,14 +234,13 @@
             <div class="glass-card">
                 <h2 class="gold-text" style="margin-bottom: 20px;">Our Gallery</h2>
                 
-                <!-- Grid Foto -->
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="samping%20(1).jpg" alt="Foto 1"></div>
+                    <div class="gallery-item"><img src="samping%20(1).jpg" alt="Foto 4"></div>
                     <div class="gallery-item"><img src="samping%20(2).jpg" alt="Foto 2"></div>
-                    <div class="gallery-item"><img src="samping%20(3).jpg" alt="Foto 3"></div>
-                    <div class="gallery-item"><img src="samping%20(4).jpg" alt="Foto 4"></div>
-                    <div class="gallery-item"><img src="samping%20(5).jpg" alt="Foto 5"></div>
-                    <div class="gallery-item"><img src="samping%20(6).jpg" alt="Foto 6"></div>
+                    <div class="gallery-item"><img src="samping%20(3).jpg" alt="Foto 5"></div>
+                    <div class="gallery-item"><img src="samping%20(4).jpg" alt="Foto 3"></div>
+                    <div class="gallery-item"><img src="samping%20(5).jpg" alt="Foto 6"></div>
+                    <div class="gallery-item"><img src="samping%20(6).jpg" alt="Foto 1"></div>
                 </div>
 
                 <div style="margin-top: 30px; text-align: left;">
@@ -283,27 +269,33 @@
     </nav>
 
     <script>
-        // Script untuk Auto Play Musik
         var audio = document.getElementById("myAudio");
-        
-        // Fungsi untuk mencoba memutar musik
-        function playMusic() {
-            audio.play().catch(error => {
-                console.log("Autoplay diblokir oleh browser, menunggu interaksi user...");
-            });
+        var hasPlayed = false;
+
+        function playAudio() {
+            if (!hasPlayed) {
+                audio.play().then(() => {
+                    hasPlayed = true;
+                    console.log("Audio is playing");
+                }).catch(error => {
+                    console.log("Autoplay prevented:", error);
+                });
+            }
         }
 
-        // Coba putar saat halaman dimuat
-        window.onload = function() {
-            playMusic();
-        };
+        // 1. Coba play saat halaman selesai dimuat
+        window.addEventListener('load', () => {
+            playAudio();
+        });
 
-        // Fallback: Jika browser memblokir autoplay, coba putar saat user klik sembarang tempat
-        document.body.addEventListener('click', function() {
-            if (audio.paused) {
-                audio.play();
-            }
-        }, { once: true });
+        // 2. Coba play saat layar disentuh atau diklik (Ini trik untuk iPhone)
+        document.body.addEventListener('click', () => {
+            playAudio();
+        });
+
+        document.body.addEventListener('touchstart', () => {
+            playAudio();
+        });
 
         // Script Navigasi
         function setActive(element) {
