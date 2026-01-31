@@ -47,29 +47,26 @@
             background-repeat: no-repeat;
             position: relative;
             min-height: 100vh;
-            background-color: rgba(255, 247, 230, 0.3); 
-            background-blend-mode: multiply; 
         }
 
         h1, h2, h3 { 
             font-family: 'Cinzel', serif; 
             text-transform: uppercase; 
             letter-spacing: 2px;
-            text-shadow: 2px 2px 6px #fff; 
         }
         
-        p { text-shadow: 1px 1px 3px #fff; }
-        
+        p {}
+
         .gold-text {
             color: var(--gold-light); 
             font-weight: 700;
-            text-shadow: 2px 2px 8px #fff;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
         }
 
         .cursive-font {
             font-family: 'Great Vibes', cursive;
             color: var(--text-color);
-            text-shadow: 1px 1px 2px #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
         }
 
         .screen-venue {
@@ -107,6 +104,13 @@
             margin: 20px 0;
             border-radius: 6px;
             backdrop-filter: blur(2px); 
+        }
+
+        /* Overlay di atas foto home */
+        .glass-card-overlay {
+            background: rgba(0,0,0,0.25);
+            padding: 25px;
+            border-radius: 6px;
         }
 
         .details-box p { margin-bottom: 8px; line-height: 1.6; font-size: 0.9rem; }
@@ -191,7 +195,7 @@
         
         <!-- VENUE & INFO -->
         <section id="home" class="bg-section screen-venue">
-            <div class="glass-card" style="margin-top:120px;"> <!-- geser tulisan -->
+            <div class="glass-card glass-card-overlay" style="margin-top:120px;">
                 <p class="cursive-font" style="font-size: 1.8rem;">The Wedding Of</p>
                 <h1 class="gold-text" style="font-size: 1.6rem; margin: 10px 0;">Kakanda<br>&<br>Adinda</h1>
                 
