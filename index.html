@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan - Ahmad & Rasyid</title>
+    <title>Undangan Pernikahan - Kaka & Adik</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,14 +16,13 @@
             --gold-primary: #D4AF37;
             --gold-light: #FADD75;
             --gold-dark: #AA8326;
-            --text-color: #f5f5f5;
-            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --text-color: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: #1a1a1a;
+            background-color: #000;
             font-family: 'Montserrat', sans-serif;
             color: var(--text-color);
             display: flex;
@@ -44,35 +43,43 @@
         }
 
         /* --- BACKGROUND HANDLING --- */
+        /* Overlay gelap dikurangi menjadi 0.3 agar foto lebih kelihatan */
         .bg-section {
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
             min-height: 100vh;
-            background-color: rgba(0, 0, 0, 0.7); /* Fallback hitam jika foto gagal */
+            background-color: rgba(0, 0, 0, 0.3); 
             background-blend-mode: multiply; 
         }
 
-        /* Tipografi */
-        h1, h2, h3 { font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; }
+        /* Tipografi dengan Shadow agar terbaca di atas foto */
+        h1, h2, h3 { 
+            font-family: 'Cinzel', serif; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px #000; /* Bayangan hitam tebal */
+        }
         
+        p {
+            text-shadow: 1px 1px 5px #000;
+        }
+        
+        /* Warna Emas Solid (bukan gradient) agar lebih terbaca di transparan */
         .gold-text {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #FADD75; /* Emas Terang */
             font-weight: 700;
+            text-shadow: 2px 2px 8px #000;
         }
 
         .cursive-font {
             font-family: 'Great Vibes', cursive;
-            color: var(--gold-light);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            color: #fff;
+            text-shadow: 2px 2px 6px #000;
         }
 
-        /* --- SCREEN 1: VENUE (BG: A1.jpg) --- */
-        /* PERHATIKAN: url('A1.jpg') Pastikan hurufnya SAMA PERSIS di file manager */
+        /* --- SCREENS --- */
         .screen-venue {
             background-image: url('A1.jpg');
             display: flex;
@@ -83,7 +90,6 @@
             padding: 40px 20px;
         }
 
-        /* --- SCREEN 2: THEME (BG: A2.jpg) --- */
         .screen-theme {
             background-image: url('A2.jpg');
             display: flex;
@@ -95,7 +101,6 @@
             border-top: 1px solid #333;
         }
 
-        /* --- SCREEN 3: GALLERY (BG: A3.jpg) --- */
         .screen-gallery {
             background-image: url('A3.jpg');
             padding: 40px 20px;
@@ -104,17 +109,18 @@
         }
 
         /* --- COMPONENTS --- */
+        /* Kartu Transparan */
         .glass-card {
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(5px);
-            border: 1px solid var(--gold-dark);
+            background: rgba(0, 0, 0, 0.15); /* Sangat transparan */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Border putih tipis */
             padding: 25px;
             margin: 20px 0;
             border-radius: 4px;
+            backdrop-filter: blur(2px); /* Blur sedikit di belakang tulisan */
         }
 
         .details-box p { margin-bottom: 8px; line-height: 1.6; font-size: 0.9rem; }
-        .details-box strong { color: var(--gold-primary); }
+        .details-box strong { color: #FADD75; }
 
         /* Tombol */
         .btn-gold {
@@ -122,24 +128,24 @@
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            background: linear-gradient(to right, #bf953f, #b38728, #bf953f);
+            background: rgba(212, 175, 55, 0.85); /* Emas transparan */
             color: #000;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             font-size: 0.8rem;
             letter-spacing: 1px;
-            border: 1px solid #fcf6ba;
+            border: 1px solid #fff;
             transition: 0.3s;
         }
-        .btn-gold:hover { background: #fff; box-shadow: 0 0 15px var(--gold-primary); }
+        .btn-gold:hover { background: #fff; }
 
         .btn-outline {
-            background: transparent;
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-primary);
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #fff;
+            color: #fff;
         }
-        .btn-outline:hover { background: rgba(212, 175, 55, 0.1); color: #fff; }
+        .btn-outline:hover { background: #fff; color: #000; }
 
         /* Galeri Grid */
         .gallery-grid {
@@ -151,40 +157,14 @@
         .gallery-item {
             aspect-ratio: 1/1;
             overflow: hidden;
-            border: 1px solid var(--gold-dark);
-            background: #222; /* Placeholder kotak */
+            border: 1px solid #fff;
+            background: transparent;
         }
         .gallery-item img {
             width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.4s;
         }
         .gallery-item:hover img { transform: scale(1.1); }
-
-        /* --- MUSIC PLAYER --- */
-        .music-control {
-            position: fixed;
-            bottom: 85px;
-            right: 20px;
-            z-index: 999;
-            width: 50px;
-            height: 50px;
-            background: var(--gold-gradient);
-            border-radius: 50%;
-            border: 2px solid #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-            animation: pulse 2s infinite;
-        }
-        .music-control span { font-size: 1.2rem; color: #000; }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
-        }
 
         /* Navigasi Bawah */
         .bottom-nav {
@@ -194,38 +174,32 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 450px;
-            background: #000;
-            border-top: 1px solid #333;
+            background: rgba(0, 0, 0, 0.8); /* Navigasi transparan gelap */
+            border-top: 1px solid #444;
             display: flex;
             justify-content: space-around;
             padding: 15px 0;
             z-index: 100;
         }
         .nav-item {
-            color: #666;
+            color: #aaa;
             text-decoration: none;
             text-align: center;
             font-size: 0.7rem;
             transition: 0.3s;
         }
-        .nav-item.active { color: var(--gold-primary); }
+        .nav-item.active { color: #fff; }
         .nav-icon { display: block; font-size: 1.2rem; margin-bottom: 2px; }
 
     </style>
 </head>
 <body>
 
-    <!-- Audio Element (Hidden) -->
-    <!-- PERHATIKAN: 'Jazz.mp3' Pastikan huruf J besar dan m kecil sesuai file asli -->
-    <audio id="myAudio" loop>
+    <!-- Audio Element (Autoplay Loop) -->
+    <!-- Perhatian: Beberapa browser (terutama iPhone/iPad) mungkin memblokir autoplay karena kebijakan keamanan -->
+    <audio id="myAudio" autoplay loop>
         <source src="Jazz.mp3" type="audio/mpeg">
-        Browser kamu tidak mendukung audio.
     </audio>
-
-    <!-- Tombol Musik Melayang -->
-    <div class="music-control" onclick="toggleAudio()">
-        <span id="music-icon">&#9654;</span> <!-- Play Icon -->
-    </div>
 
     <div class="app-container">
         
@@ -233,17 +207,17 @@
         <section id="home" class="bg-section screen-venue">
             <div class="glass-card">
                 <p class="cursive-font" style="font-size: 1.8rem;">The Wedding Of</p>
-                <h1 class="gold-text" style="font-size: 1.6rem; margin: 10px 0;">Dato' Ahmad Akbar<br>&<br>Rasyid</h1>
+                <h1 class="gold-text" style="font-size: 1.6rem; margin: 10px 0;">Kaka<br>&<br>Adik</h1>
                 
                 <div class="details-box" style="margin-top: 20px; text-align: left;">
                     <p><strong>SABTU</strong></p>
                     <p style="font-size: 1.2rem; color: #fff;">25 . 12 . 2024</p>
-                    <hr style="border: 0; border-top: 1px solid #444; margin: 10px 0;">
+                    <hr style="border: 0; border-top: 1px solid #666; margin: 10px 0;">
                     <p><strong>JAM</strong></p>
                     <p>09:00 WIB - Selesai</p>
                     <br>
                     <p><strong>LOKASI</strong></p>
-                    <p>Grand Ballroom,<br>The Majestic Hotel<br>Kuala Lumpur</p>
+                    <p>Grand Ballroom,<br>The Majestic Hotel<br>Jakarta</p>
                 </div>
 
                 <a href="#" class="btn-gold">Lihat Peta</a>
@@ -253,12 +227,12 @@
 
         <!-- === BAGIAN 2: TEMA === -->
         <section id="theme" class="bg-section screen-theme">
-            <div style="border: 1px solid var(--gold-primary); padding: 40px 20px; background: rgba(0,0,0,0.8);">
-                <p style="color: var(--gold-primary); letter-spacing: 3px; font-size: 0.7rem;">THEME</p>
+            <div style="border: 1px solid rgba(255,255,255,0.3); padding: 40px 20px; background: rgba(0,0,0,0.2);">
+                <p style="color: #fff; letter-spacing: 3px; font-size: 0.7rem;">THEME</p>
                 <h2 class="gold-text" style="font-size: 2rem; margin: 15px 0;">Romeo & Juliet</h2>
                 <div style="font-size: 2rem; color: #fff; margin-bottom: 20px;">&#9829;</div>
                 
-                <p style="font-style: italic; color: #ccc; margin-bottom: 30px; line-height: 1.6;">
+                <p style="font-style: italic; color: #eee; margin-bottom: 30px; line-height: 1.6;">
                     "Merayakan kisah cinta abadi dalam balutan kemewahan klasik."
                 </p>
                 
@@ -274,7 +248,6 @@
                 <h2 class="gold-text" style="margin-bottom: 20px;">Our Gallery</h2>
                 
                 <!-- Grid Foto -->
-                <!-- PERHATIKAN: Spasi diganti menjadi %20 (misal: samping%20(1).jpg) -->
                 <div class="gallery-grid">
                     <div class="gallery-item"><img src="samping%20(1).jpg" alt="Foto 1"></div>
                     <div class="gallery-item"><img src="samping%20(2).jpg" alt="Foto 2"></div>
@@ -285,8 +258,8 @@
                 </div>
 
                 <div style="margin-top: 30px; text-align: left;">
-                    <p style="color: var(--gold-primary); font-family: 'Cinzel'; margin-bottom: 5px;">Love Story</p>
-                    <p style="font-size: 0.85rem; color: #aaa;">Berawal dari pertemuan tak sengaja, kini kami memutuskan untuk mengikat janji suci selamanya.</p>
+                    <p style="color: #FADD75; font-family: 'Cinzel'; margin-bottom: 5px;">Love Story</p>
+                    <p style="font-size: 0.85rem; color: #eee;">Berawal dari pertemuan tak sengaja, kini kami memutuskan untuk mengikat janji suci selamanya.</p>
                 </div>
             </div>
         </section>
@@ -310,23 +283,29 @@
     </nav>
 
     <script>
-        // Script untuk Audio
+        // Script untuk Auto Play Musik
         var audio = document.getElementById("myAudio");
-        var musicIcon = document.getElementById("music-icon");
-        var isPlaying = false;
-
-        function toggleAudio() {
-            if (isPlaying) {
-                audio.pause();
-                musicIcon.innerHTML = "&#9654;"; 
-            } else {
-                audio.play();
-                musicIcon.innerHTML = "&#10074;&#10074;"; 
-            }
-            isPlaying = !isPlaying;
+        
+        // Fungsi untuk mencoba memutar musik
+        function playMusic() {
+            audio.play().catch(error => {
+                console.log("Autoplay diblokir oleh browser, menunggu interaksi user...");
+            });
         }
 
-        // Script untuk Navigasi Aktif
+        // Coba putar saat halaman dimuat
+        window.onload = function() {
+            playMusic();
+        };
+
+        // Fallback: Jika browser memblokir autoplay, coba putar saat user klik sembarang tempat
+        document.body.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+            }
+        }, { once: true });
+
+        // Script Navigasi
         function setActive(element) {
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             element.classList.add('active');
