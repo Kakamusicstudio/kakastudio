@@ -46,7 +46,6 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            min-height: 100vh;
         }
 
         h1, h2, h3 { 
@@ -54,63 +53,37 @@
             text-transform: uppercase; 
             letter-spacing: 2px;
         }
-        
-        p {}
 
         .gold-text {
             color: var(--gold-light); 
             font-weight: 700;
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
         }
 
         .cursive-font {
             font-family: 'Great Vibes', cursive;
             color: var(--text-color);
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
         }
 
         .screen-venue {
             background-image: url('A1.jpg');
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* biar foto penuh */
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
-        }
-
-        .screen-theme {
-            background-image: url('A2.jpg');
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #ccc;
-        }
-
-        .screen-gallery {
-            background-image: url('A3.jpg');
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid #ccc;
+            padding-top: 20px;
+            min-height: 100vh;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.6); 
+            background: rgba(255, 255, 255, 0.8); 
             border: 1px solid rgba(212, 175, 55, 0.5); 
-            padding: 25px;
-            margin: 20px 0;
+            padding: 20px;
+            margin: 20px;
             border-radius: 6px;
             backdrop-filter: blur(2px); 
-        }
-
-        /* Overlay di atas foto home */
-        .glass-card-overlay {
-            background: rgba(0,0,0,0.25);
-            padding: 25px;
-            border-radius: 6px;
         }
 
         .details-box p { margin-bottom: 8px; line-height: 1.6; font-size: 0.9rem; }
@@ -139,6 +112,24 @@
             color: #333;
         }
         .btn-outline:hover { background: #333; color: #fff; }
+
+        .screen-theme {
+            background-image: url('A2.jpg');
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .screen-gallery {
+            background-image: url('A3.jpg');
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+        }
 
         .gallery-grid {
             display: grid;
@@ -182,24 +173,32 @@
         .nav-item.active { color: #333; }
         .nav-icon { display: block; font-size: 1.2rem; margin-bottom: 2px; }
 
+        /* tulisan bawah foto */
+        .home-text {
+            margin-top: -60px; /* geser naik */
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Audio tetap -->
+    <!-- Audio -->
     <audio id="myAudio" autoplay loop playsinline>
         <source src="Jazz.mp3" type="audio/mpeg">
     </audio>
 
     <div class="app-container">
-        
-        <!-- VENUE & INFO -->
+
+        <!-- VENUE & FOTO -->
         <section id="home" class="bg-section screen-venue">
-            <div class="glass-card glass-card-overlay" style="margin-top:120px;">
+            <!-- Foto penuh di background -->
+            <div class="home-text">
                 <p class="cursive-font" style="font-size: 1.8rem;">The Wedding Of</p>
-                <h1 class="gold-text" style="font-size: 1.6rem; margin: 10px 0;">Kakanda<br>&<br>Adinda</h1>
-                
-                <div class="details-box" style="margin-top: 20px; text-align: left;">
+                <h1 class="gold-text" style="font-size: 1.6rem; margin: 10px 0;">Kakanda & Adinda</h1>
+            </div>
+            <div class="glass-card">
+                <div class="details-box" style="text-align: left;">
                     <p><strong>SABTU</strong></p>
                     <p style="font-size: 1.2rem; color: #333;">25 . 12 . 2024</p>
                     <hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
