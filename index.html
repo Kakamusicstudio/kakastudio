@@ -3,35 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan - The Royal Wedding</title>
+    <title>Undangan Pernikahan - Ahmad & Rasyid</title>
     
-    <!-- Import Google Fonts untuk nuansa mewah dan elegan -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Palet Warna */
-            --bg-color: #050505;       /* Hitam Pekat */
-            --card-bg: #0f0f0f;        /* Hitam Sedikit Terang untuk Kartu */
-            --gold-primary: #D4AF37;   /* Emas Standar */
-            --gold-light: #FADD75;     /* Emas Terang */
-            --gold-dark: #AA8326;      /* Emas Gelap */
-            --text-color: #e0e0e0;     /* Putih Tulang untuk teks bodi */
-            
-            /* Gradasi Emas Metalik */
+            --bg-color: #050505;
+            --gold-primary: #D4AF37;
+            --gold-light: #FADD75;
+            --gold-dark: #AA8326;
+            --text-color: #f5f5f5;
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: #1a1a1a; /* Latar belakang browser luar */
+            background-color: #1a1a1a;
             font-family: 'Montserrat', sans-serif;
             color: var(--text-color);
             display: flex;
@@ -39,26 +31,32 @@
             min-height: 100vh;
         }
 
-        /* Container utama menyerupai layar HP */
+        /* Mobile Container */
         .app-container {
             width: 100%;
-            max-width: 420px; /* Ukuran lebar HP */
+            max-width: 450px;
             background-color: var(--bg-color);
             min-height: 100vh;
             position: relative;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            box-shadow: 0 0 60px rgba(0,0,0,0.9);
             overflow-x: hidden;
-            border-left: 1px solid #222;
-            border-right: 1px solid #222;
+            padding-bottom: 80px;
         }
 
-        /* Tipografi & Utilitas Emas */
-        h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        /* --- BACKGROUND HANDLING --- */
+        .bg-section {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7); /* Fallback hitam jika foto gagal */
+            background-blend-mode: multiply; 
         }
 
+        /* Tipografi */
+        h1, h2, h3 { font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; }
+        
         .gold-text {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
@@ -67,96 +65,62 @@
             font-weight: 700;
         }
 
-        .border-gold {
-            border: 1px solid var(--gold-dark);
-            position: relative;
+        .cursive-font {
+            font-family: 'Great Vibes', cursive;
+            color: var(--gold-light);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
-        /* Dekorasi Sudut (Corner Frame) */
-        .corner-frame {
-            position: relative;
-            padding: 20px;
-            margin: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            text-align: center;
-        }
-
-        .corner-frame::before, .corner-frame::after,
-        .corner-inner::before, .corner-inner::after {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            border-color: var(--gold-primary);
-            border-style: solid;
-            transition: all 0.3s ease;
-        }
-
-        /* Sudut Luar */
-        .corner-frame::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-        .corner-frame::after { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-        .corner-inner { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-        .corner-inner::before { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-        .corner-inner::after { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-
-        /* --- SCREEN 1: VENUE & COUPLE --- */
+        /* --- SCREEN 1: VENUE (BG: A1.jpg) --- */
+        /* PERHATIKAN: url('A1.jpg') Pastikan hurufnya SAMA PERSIS di file manager */
         .screen-venue {
-            padding-top: 40px;
-            text-align: center;
-            min-height: 100vh;
+            background-image: url('A1.jpg');
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
         }
 
-        .ornament-top {
-            width: 150px;
-            height: auto;
-            margin: 0 auto 20px;
-            opacity: 0.8;
+        /* --- SCREEN 2: THEME (BG: A2.jpg) --- */
+        .screen-theme {
+            background-image: url('A2.jpg');
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #333;
         }
 
-        .couple-names {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-            line-height: 1.3;
+        /* --- SCREEN 3: GALLERY (BG: A3.jpg) --- */
+        .screen-gallery {
+            background-image: url('A3.jpg');
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #333;
         }
 
-        .wedding-label {
-            font-family: 'Great Vibes', cursive;
-            color: var(--gold-light);
-            font-size: 2.5rem;
-            margin: 10px 0 30px;
-            text-shadow: 0 0 10px rgba(250, 221, 117, 0.3);
-        }
-
-        .details-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            margin: 0 30px;
+        /* --- COMPONENTS --- */
+        .glass-card {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--gold-dark);
+            padding: 25px;
+            margin: 20px 0;
             border-radius: 4px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            margin-bottom: 30px;
         }
 
-        .details-box p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #ccc;
-            margin-bottom: 8px;
-        }
+        .details-box p { margin-bottom: 8px; line-height: 1.6; font-size: 0.9rem; }
+        .details-box strong { color: var(--gold-primary); }
 
-        .details-box strong {
-            color: var(--gold-primary);
-            font-family: 'Cinzel', serif;
-        }
-
-        /* Tombol Emas */
+        /* Tombol */
         .btn-gold {
-            display: inline-block;
+            display: block;
             width: 100%;
-            padding: 12px 20px;
+            padding: 12px;
             margin: 10px 0;
             background: linear-gradient(to right, #bf953f, #b38728, #bf953f);
             color: #000;
@@ -166,338 +130,207 @@
             font-size: 0.8rem;
             letter-spacing: 1px;
             border: 1px solid #fcf6ba;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            transition: 0.3s;
         }
-
-        .btn-gold:hover {
-            background: linear-gradient(to right, #fcf6ba, #fbf5b7, #fcf6ba);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-        }
-
-        /* --- SCREEN 2: THEME & INVITATION --- */
-        .screen-theme {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
-        }
-
-        .theme-badge {
-            display: inline-block;
-            border: 1px solid var(--gold-primary);
-            padding: 8px 16px;
-            color: var(--gold-primary);
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .theme-title {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        .rj-icon {
-            font-size: 3rem;
-            color: var(--gold-primary);
-            margin: 20px 0;
-            opacity: 0.8;
-        }
-
-        .invite-text {
-            font-style: italic;
-            color: #999;
-            margin-bottom: 30px;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            max-width: 80%;
-        }
+        .btn-gold:hover { background: #fff; box-shadow: 0 0 15px var(--gold-primary); }
 
         .btn-outline {
             background: transparent;
             border: 1px solid var(--gold-primary);
             color: var(--gold-primary);
         }
-        .btn-outline:hover {
-            background: rgba(212, 175, 55, 0.1);
-            color: #fff;
-            border-color: #fff;
-        }
+        .btn-outline:hover { background: rgba(212, 175, 55, 0.1); color: #fff; }
 
-        /* --- SCREEN 3: STORY & GALLERY --- */
-        .screen-gallery {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 2px;
-            background: var(--gold-primary);
-            margin: 10px auto 0;
-        }
-
-        /* Timeline Sederhana */
-        .story-item {
-            display: flex;
-            text-align: left;
-            margin-bottom: 25px;
-            align-items: flex-start;
-        }
-        .story-year {
-            font-family: 'Cinzel', serif;
-            color: var(--gold-primary);
-            font-size: 1.1rem;
-            width: 60px;
-            flex-shrink: 0;
-            padding-top: 3px;
-        }
-        .story-content {
-            border-left: 1px solid #333;
-            padding-left: 20px;
-            padding-bottom: 10px;
-        }
-        .story-content h4 {
-            color: #fff;
-            margin-bottom: 5px;
-            font-size: 1rem;
-        }
-        .story-content p {
-            color: #888;
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-
-        /* Grid Galeri */
+        /* Galeri Grid */
         .gallery-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
             margin-top: 20px;
         }
-
         .gallery-item {
-            position: relative;
-            aspect-ratio: 1 / 1; /* Kotak */
+            aspect-ratio: 1/1;
             overflow: hidden;
-            border: 1px solid #333;
+            border: 1px solid var(--gold-dark);
+            background: #222; /* Placeholder kotak */
         }
-
         .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            filter: grayscale(80%);
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* --- MUSIC PLAYER --- */
+        .music-control {
+            position: fixed;
+            bottom: 85px;
+            right: 20px;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+            animation: pulse 2s infinite;
+        }
+        .music-control span { font-size: 1.2rem; color: #000; }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
-            filter: grayscale(0%);
-        }
-
-        /* Navigasi Bawah Simulasi App */
+        /* Navigasi Bawah */
         .bottom-nav {
             position: fixed;
-            bottom: 20px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 60px);
-            max-width: 360px;
-            background: rgba(10, 10, 10, 0.95);
-            border: 1px solid #333;
-            border-radius: 30px;
+            width: 100%;
+            max-width: 450px;
+            background: #000;
+            border-top: 1px solid #333;
             display: flex;
             justify-content: space-around;
             padding: 15px 0;
-            backdrop-filter: blur(5px);
             z-index: 100;
         }
-
         .nav-item {
-            color: #555;
+            color: #666;
             text-decoration: none;
+            text-align: center;
             font-size: 0.7rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: color 0.3s;
+            transition: 0.3s;
         }
-        .nav-item span {
-            font-size: 1.2rem;
-            margin-bottom: 4px;
-        }
-        .nav-item.active {
-            color: var(--gold-primary);
-        }
-
-        /* SVG Ornamen Inline */
-        .floral-svg {
-            width: 80px;
-            height: 80px;
-            fill: none;
-            stroke: var(--gold-primary);
-            stroke-width: 1;
-            opacity: 0.6;
-            margin: 0 auto 10px;
-        }
+        .nav-item.active { color: var(--gold-primary); }
+        .nav-icon { display: block; font-size: 1.2rem; margin-bottom: 2px; }
 
     </style>
 </head>
 <body>
 
+    <!-- Audio Element (Hidden) -->
+    <!-- PERHATIKAN: 'Jazz.mp3' Pastikan huruf J besar dan m kecil sesuai file asli -->
+    <audio id="myAudio" loop>
+        <source src="Jazz.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio.
+    </audio>
+
+    <!-- Tombol Musik Melayang -->
+    <div class="music-control" onclick="toggleAudio()">
+        <span id="music-icon">&#9654;</span> <!-- Play Icon -->
+    </div>
+
     <div class="app-container">
         
-        <!-- === SCREEN 1: Venue & Couple Info === -->
-        <section id="screen1" class="screen-venue">
-            <!-- Ornamen Bunga CSS/SVG -->
-            <svg class="floral-svg" viewBox="0 0 100 100">
-                <path d="M50 10 C30 10, 10 30, 10 50 C10 70, 30 90, 50 90 C70 90, 90 70, 90 50 C90 30, 70 10, 50 10 Z" stroke-dasharray="5,5" />
-                <path d="M30 30 Q50 10 70 30 T50 50 T30 30" fill="none" />
-            </svg>
-
-            <div class="corner-frame">
-                <div class="corner-inner"></div>
-                <p class="wedding-label">The Wedding Of</p>
-                <h1 class="couple-names gold-text">Dato' Ahmad Akbar<br>&<br>Rasyid</h1>
-            </div>
-
-            <div class="details-box">
-                <p><strong>SABTU</strong></p>
-                <p style="font-size: 1.5rem; color: #fff; letter-spacing: 2px;">25 . 12 . 2024</p>
-                <br>
-                <p><strong>JAM</strong></p>
-                <p>09:00 WIB - Selesai</p>
-                <br>
-                <p><strong>LOKASI</strong></p>
-                <p>Grand Ballroom,<br>The Majestic Hotel<br>Kuala Lumpur, Malaysia</p>
-            </div>
-
-            <div style="padding: 0 30px;">
-                <a href="#" class="btn-gold">Lihat Peta</a>
-                <a href="#" class="btn-gold btn-outline" style="border:1px solid #555; color:#aaa;">Save The Date</a>
-            </div>
-        </section>
-
-
-        <!-- === SCREEN 2: Theme & Invitation === -->
-        <section id="screen2" class="screen-theme">
-            <div class="theme-badge">Special Theme</div>
-            
-            <h2 class="theme-title gold-text">Romeo & Juliet</h2>
-            
-            <!-- Ikon Hati/Topi -->
-            <div class="rj-icon">
-                &#9829; <!-- Simbol Hati Black -->
-            </div>
-
-            <p class="invite-text">
-                "Kami mengundang Anda untuk merayakan cinta abadi kami dalam tema klasik yang romantis."
-            </p>
-
-            <div class="corner-frame" style="border-style: dashed; background: rgba(0,0,0,0.3);">
-                <p style="color:var(--gold-primary); font-family:'Cinzel'; letter-spacing:1px; margin-bottom:10px;">
-                    KEPADA YTH.
-                </p>
-                <h3 style="color: #fff; font-size: 1.1rem; margin-bottom: 20px;">
-                    Bapak/Ibu/Saudara/i
-                </h3>
-                <a href="#" class="btn-gold">Buka Undangan</a>
-            </div>
-        </section>
-
-
-        <!-- === SCREEN 3: Story & Gallery === -->
-        <section id="screen3" class="screen-gallery">
-            
-            <!-- Bagian Cerita Cinta -->
-            <div style="margin-bottom: 40px;">
-                <h3 class="section-title gold-text">Love Story</h3>
+        <!-- === BAGIAN 1: VENUE & INFO === -->
+        <section id="home" class="bg-section screen-venue">
+            <div class="glass-card">
+                <p class="cursive-font" style="font-size: 1.8rem;">The Wedding Of</p>
+                <h1 class="gold-text" style="font-size: 1.6rem; margin: 10px 0;">Dato' Ahmad Akbar<br>&<br>Rasyid</h1>
                 
-                <div class="story-item">
-                    <div class="story-year">2018</div>
-                    <div class="story-content">
-                        <h4>Pertemuan Pertama</h4>
-                        <p>Kami bertemu pertama kali di sebuah acara bisnis di Kuala Lumpur. Tatapan pertama yang tak terlupakan.</p>
-                    </div>
+                <div class="details-box" style="margin-top: 20px; text-align: left;">
+                    <p><strong>SABTU</strong></p>
+                    <p style="font-size: 1.2rem; color: #fff;">25 . 12 . 2024</p>
+                    <hr style="border: 0; border-top: 1px solid #444; margin: 10px 0;">
+                    <p><strong>JAM</strong></p>
+                    <p>09:00 WIB - Selesai</p>
+                    <br>
+                    <p><strong>LOKASI</strong></p>
+                    <p>Grand Ballroom,<br>The Majestic Hotel<br>Kuala Lumpur</p>
                 </div>
 
-                <div class="story-item">
-                    <div class="story-year">2021</div>
-                    <div class="story-content">
-                        <h4>Lamaran</h4>
-                        <p>Dengan penuh keberanian, Ahmad melamar Rasyid di bawah indahnya langit malam Paris.</p>
-                    </div>
-                </div>
+                <a href="#" class="btn-gold">Lihat Peta</a>
             </div>
+        </section>
 
-            <!-- Bagian Galeri Foto -->
-            <div>
-                <h3 class="section-title gold-text">Photo Album</h3>
+
+        <!-- === BAGIAN 2: TEMA === -->
+        <section id="theme" class="bg-section screen-theme">
+            <div style="border: 1px solid var(--gold-primary); padding: 40px 20px; background: rgba(0,0,0,0.8);">
+                <p style="color: var(--gold-primary); letter-spacing: 3px; font-size: 0.7rem;">THEME</p>
+                <h2 class="gold-text" style="font-size: 2rem; margin: 15px 0;">Romeo & Juliet</h2>
+                <div style="font-size: 2rem; color: #fff; margin-bottom: 20px;">&#9829;</div>
+                
+                <p style="font-style: italic; color: #ccc; margin-bottom: 30px; line-height: 1.6;">
+                    "Merayakan kisah cinta abadi dalam balutan kemewahan klasik."
+                </p>
+                
+                <h3 style="color: #fff; margin-bottom: 20px; font-size: 1rem;">Kepada Yth.</h3>
+                <a href="#" class="btn-gold btn-outline">Buka Undangan</a>
+            </div>
+        </section>
+
+
+        <!-- === BAGIAN 3: GALERI === -->
+        <section id="gallery" class="bg-section screen-gallery">
+            <div class="glass-card">
+                <h2 class="gold-text" style="margin-bottom: 20px;">Our Gallery</h2>
+                
+                <!-- Grid Foto -->
+                <!-- PERHATIKAN: Spasi diganti menjadi %20 (misal: samping%20(1).jpg) -->
                 <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <!-- Placeholder gambar -->
-                        <img src="https://picsum.photos/seed/wedding1/300/300" alt="Foto Prewed 1">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://picsum.photos/seed/wedding2/300/300" alt="Foto Prewed 2">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://picsum.photos/seed/wedding3/300/300" alt="Foto Prewed 3">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://picsum.photos/seed/wedding4/300/300" alt="Foto Prewed 4">
-                    </div>
+                    <div class="gallery-item"><img src="samping%20(1).jpg" alt="Foto 1"></div>
+                    <div class="gallery-item"><img src="samping%20(2).jpg" alt="Foto 2"></div>
+                    <div class="gallery-item"><img src="samping%20(3).jpg" alt="Foto 3"></div>
+                    <div class="gallery-item"><img src="samping%20(4).jpg" alt="Foto 4"></div>
+                    <div class="gallery-item"><img src="samping%20(5).jpg" alt="Foto 5"></div>
+                    <div class="gallery-item"><img src="samping%20(6).jpg" alt="Foto 6"></div>
+                </div>
+
+                <div style="margin-top: 30px; text-align: left;">
+                    <p style="color: var(--gold-primary); font-family: 'Cinzel'; margin-bottom: 5px;">Love Story</p>
+                    <p style="font-size: 0.85rem; color: #aaa;">Berawal dari pertemuan tak sengaja, kini kami memutuskan untuk mengikat janji suci selamanya.</p>
                 </div>
             </div>
-
-            <footer style="margin-top: 50px; font-size: 0.7rem; color: #444;">
-                <p>&copy; 2024 Dato' Ahmad Akbar & Rasyid</p>
-                <p>Made with Love</p>
-            </footer>
         </section>
 
     </div>
 
-    <!-- Navigasi Bawah untuk Meniru Tampilan Aplikasi -->
+    <!-- Navigasi Bawah -->
     <nav class="bottom-nav">
-        <a href="#screen1" class="nav-item active" onclick="setActive(this)">
-            <span>&#9865;</span> <!-- Icon House/Info -->
+        <a href="#home" class="nav-item active" onclick="setActive(this)">
+            <span class="nav-icon">&#8962;</span>
             Info
         </a>
-        <a href="#screen2" class="nav-item" onclick="setActive(this)">
-            <span>&#10002;</span> <!-- Icon Check/Invite -->
+        <a href="#theme" class="nav-item" onclick="setActive(this)">
+            <span class="nav-icon">&#10002;</span>
             Undangan
         </a>
-        <a href="#screen3" class="nav-item" onclick="setActive(this)">
-            <span>&#10024;</span> <!-- Icon Sparkles/Gallery -->
+        <a href="#gallery" class="nav-item" onclick="setActive(this)">
+            <span class="nav-icon">&#128247;</span>
             Galeri
         </a>
     </nav>
 
     <script>
-        // Script sederhana untuk menangani navigasi tab aktif
+        // Script untuk Audio
+        var audio = document.getElementById("myAudio");
+        var musicIcon = document.getElementById("music-icon");
+        var isPlaying = false;
+
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                musicIcon.innerHTML = "&#9654;"; 
+            } else {
+                audio.play();
+                musicIcon.innerHTML = "&#10074;&#10074;"; 
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Script untuk Navigasi Aktif
         function setActive(element) {
-            // Hapus kelas active dari semua item
-            const items = document.querySelectorAll('.nav-item');
-            items.forEach(item => item.classList.remove('active'));
-            
-            // Tambah k
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
