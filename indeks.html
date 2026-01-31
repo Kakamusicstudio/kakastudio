@@ -1,103 +1,379 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Undangan Pernikahan - Elit</title>
-<meta property="og:title" content="Undangan Pernikahan Elit">
-<meta property="og:description" content="Kami mengundang Anda ke pernikahan kami yang istimewa">
-<meta property="og:image" content="cover.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
-<style>
-body, html{margin:0;padding:0;font-family:'Playfair Display', serif;background:#0b0b0f;color:#fff;overflow-x:hidden;}
-a{text-decoration:none;}
-.container{max-width:420px;margin:auto;min-height:100vh;position:relative;z-index:1;}
-#opening{position:fixed;inset:0;background:#0b0b0f;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:white;animation:fadeIn 1s;}
-#opening button{margin-top:20px;padding:14px 28px;border-radius:14px;border:none;background:linear-gradient(135deg,#ffb347,#ffcc33);color:#000;font-weight:700;font-size:16px;cursor:pointer;transition:0.3s;animation:fadeInUp 1s;}
-#opening button:hover{opacity:0.85;}
-.hero{position:relative;}
-.hero img{width:100%;height:60vh;object-fit:cover;border-radius:18px;animation:fadeIn 2s;}
-.overlay{position:absolute;inset:0;background:linear-gradient(to top,#0b0b0f,transparent);border-radius:18px;}
-.hero-text{position:absolute;bottom:20px;width:100%;text-align:center;animation:fadeIn 2s;}
-.hero-text h1{margin:0;font-size:32px;font-family:'Great Vibes', cursive;}
-.hero-text p{margin:5px 0;font-size:14px;letter-spacing:1px;}
-.section{padding:24px 20px;text-align:center;}
-.card{background:#1b1b24;border-radius:18px;padding:20px;margin-top:18px;box-shadow:0 4px 15px rgba(0,0,0,0.5);transition:transform 0.3s, box-shadow 0.3s, opacity 0.5s;opacity:0;animation:fadeIn 1s forwards;}
-.card:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,0.6);}
-.btn{display:block;background:linear-gradient(135deg,#ffb347,#ffcc33);color:#000;padding:14px;border-radius:14px;text-decoration:none;font-weight:600;margin-top:12px;transition:0.3s, transform 0.3s;}
-.btn:hover{opacity:0.85;transform:scale(1.05);}
-input,textarea{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:none;font-family:inherit;transition:0.3s;}
-input:focus,textarea:focus{outline:none;box-shadow:0 0 8px #ffcc33;}
-.music-btn{position:fixed;top:16px;right:16px;background:linear-gradient(135deg,#ffb347,#ffcc33);color:#000;border:none;padding:12px;border-radius:50%;z-index:999;cursor:pointer;transition:transform 0.3s;}
-.music-btn:hover{transform:scale(1.1);}
-footer{padding:20px;font-size:12px;color:#aaa;text-align:center;opacity:0.8;}
-#countdown{font-size:20px;margin-top:12px;letter-spacing:1px;animation:fadeIn 2s;}
-.confetti-piece{position:fixed;width:8px;height:8px;background:red;top:0;left:0;opacity:0.8;z-index:9999;animation:fall 5s linear infinite;}
-@keyframes fall{0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(100vh) rotate(360deg);}}
-@keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
-@keyframes fadeInUp{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan - Elit</title>
+  <meta property="og:title" content="Undangan Pernikahan Elit">
+  <meta property="og:description" content="Kami mengundang Anda ke pernikahan kami yang istimewa">
+  <meta property="og:image" content="cover.jpg">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
+      background: #0b0b0f;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Opening Screen */
+    #opening {
+      position: fixed;
+      inset: 0;
+      background: #0b0b0f;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      animation: fadeIn 1s;
+    }
+
+    #opening button {
+      margin-top: 20px;
+      padding: 14px 28px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #ffb347, #ffcc33);
+      color: #000;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      animation: fadeInUp 1s;
+    }
+
+    #opening button:hover {
+      opacity: 0.85;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      border-radius: 18px;
+      animation: fadeIn 2s;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, #0b0b0f, transparent);
+      border-radius: 18px;
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 2s;
+    }
+
+    .hero-text h1 {
+      margin: 0;
+      font-size: 32px;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .hero-text p {
+      margin: 5px 0;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    /* Sections & Cards */
+    .section {
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: #1b1b24;
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    .btn {
+      display: block;
+      background: linear-gradient(135deg, #ffb347, #ffcc33);
+      color: #000;
+      padding: 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 12px;
+      transition: 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+      transform: scale(1.05);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: none;
+      font-family: inherit;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 8px #ffcc33;
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    #countdown {
+      font-size: 20px;
+      margin-top: 12px;
+      letter-spacing: 1px;
+      animation: fadeIn 2s;
+    }
+
+    /* Confetti */
+    .confetti-piece {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: red;
+      top: 0;
+      left: 0;
+      opacity: 0.8;
+      z-index: 9999;
+      animation: fall 5s linear infinite;
+    }
+
+    /* Animations */
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Gallery Top Layout */
+    .gallery-top {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .left-column,
+    .right-column {
+      display: grid;
+      gap: 10px;
+    }
+
+    .left-column img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      animation: fadeIn 2s;
+    }
+
+    .right-column img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      animation: fadeIn 2s;
+    }
+
+    /* Gallery Bottom Layout */
+    .gallery-bottom {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .gallery-bottom img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      animation: fadeIn 2s;
+    }
+  </style>
 </head>
+
 <body>
-<div id="opening">
-  <h2>Undangan</h2>
-  <p>Kaka Studio</p>
-  <button onclick="openInvite()">Buka</button>
-</div>
-<audio id="bgm" loop>
-  <source src="Jazz.mp3" type="audio/mpeg">
-</audio>
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
-<div class="container">
-  <div class="hero">
-    <img src="A1.jpg">
-    <div class="overlay"></div>
-    <div class="hero-text">
-      <p>UNDANGAN PERNIKAHAN </p>
-      <h1 style="font-family: 'Playfair Display', serif;">Kaka & Adik</h1>
-    </div>
+  <!-- Opening -->
+  <div id="opening">
+    <h2>Undangan</h2>
+    <p>Kaka Studio</p>
+    <button onclick="openInvite()">Buka</button>
   </div>
-  <div class="section">
-    <p>Dengan penuh rasa syukur, kami mengundang Anda untuk hadir dan memberikan doa restu pada kami.</p>
-    <div class="card">
-      <strong>📅 Minggu, 12 Mei 2026</strong><br>
-      <strong>🕘 09.00 WIB</strong>
-      <div id="countdown"></div><br>
-      📍 Alamat Acara
-      <a class="btn" href="https://maps.app.goo.gl/vvnQnUdzHB5J9x889" target="_blank">Buka Google Maps</a>
+
+  <!-- Background Music -->
+  <audio id="bgm" loop>
+    <source src="Jazz.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+      <img src="A1.jpg" alt="Cover">
+      <div class="overlay"></div>
+      <div class="hero-text">
+        <p>UNDANGAN PERNIKAHAN</p>
+        <h1>Kaka & Adik</h1>
+      </div>
     </div>
-    <div class="card">
-      <h3>💝 Amplop Digital</h3>
-      <a class="btn" href="https://link.dana.id/089508492270" target="_blank">Buka Dana</a>
+
+    <!-- Main Section -->
+    <div class="section">
+      <p>Dengan penuh rasa syukur, kami mengundang Anda untuk hadir dan memberikan doa restu pada kami.</p>
+
+      <!-- Photo Gallery -->
+      <div class="card">
+        <h3>🖼 Galeri Foto</h3>
+
+        <!-- Top Layout: 4 foto -->
+        <div class="gallery-top">
+          <div class="left-column">
+            <img src="samping (1).jpg" alt="Foto 1">
+            <img src="samping (2).jpg" alt="Foto 2">
+          </div>
+          <div class="right-column">
+            <img src="samping (3).jpg" alt="Foto 3">
+            <img src="samping (4).jpg" alt="Foto 4">
+          </div>
+        </div>
+
+        <!-- Bottom Layout: sisa foto -->
+        <div class="gallery-bottom">
+          <img src="samping (5).jpg" alt="Foto 5">
+          <img src="samping (6).jpg" alt="Foto 6">
+          <img src="A2.jpg" alt="Foto 7">
+          <img src="A3.jpg" alt="Foto 8">
+        </div>
+      </div>
+
+      <!-- Event & Gift Info -->
+      <div class="card">
+        <strong>📅 Minggu, 12 Mei 2026</strong><br>
+        <strong>🕘 09.00 WIB</strong>
+        <div id="countdown"></div><br>
+        📍 Alamat Acara
+        <a class="btn" href="https://maps.app.goo.gl/vvnQnUdzHB5J9x889" target="_blank">Buka Google Maps</a>
+      </div>
+
+      <div class="card">
+        <h3>💝 Amplop Digital</h3>
+        <a class="btn" href="https://link.dana.id/089508492270" target="_blank">Buka Dana</a>
+      </div>
+
+      <div class="card">
+        <h3>📖 Buku Tamu</h3>
+        <input type="text" placeholder="Nama">
+        <textarea rows="3" placeholder="Ucapan & Doa"></textarea>
+        <button class="btn">Kirim</button>
+      </div>
+
     </div>
-    <div class="card">
-      <h3>📖 Buku Tamu</h3>
-      <input type="text" placeholder="Nama">
-      <textarea rows="3" placeholder="Ucapan & Doa"></textarea>
-      <button class="btn">Kirim</button>
-    </div>
-    <div class="card">
-      <h3>🖼 Galeri Foto</h3>
-      <img src="A2.jpg" style="width:100%;margin-top:10px;border-radius:12px;animation:fadeIn 2s;">
-      <img src="A3.jpg" style="width:100%;margin-top:10px;border-radius:12px;animation:fadeIn 2s;">
-    </div>
+
+    <footer>Terima kasih atas doa dan restu Anda</footer>
   </div>
-  <footer>Terima kasih atas doa dan restu Anda</footer>
-</div>
-<script>
-const bgm=document.getElementById('bgm');
-let playing=false;
-function openInvite(){
-  document.getElementById('opening').style.display='none';
-  bgm.play();
-  playing=true;
-  launchConfetti();
-}
-function toggleMusic(){if(playing){bgm.pause();playing=false;}else{bgm.play();playing=true;}}
-const countDownDate=new Date("May 12, 2026 09:00:00").getTime();
-const countdownElem=document.getElementById('countdown');
-setInterval(()=>{const now=new Date().getTime();const distance=countDownDate-now;if(distance<0){countdownElem.innerHTML="Hari H!";return;}const d=Math.floor(distance/(1000*60*60*24));const h=Math.floor((distance%(1000*60*60*24))/(1000*60*60));const m=Math.floor((distance%(1000*60*60))/(1000*60));const s=Math.floor((distance%(1000*60))/1000);countdownElem.innerHTML=`${d} Hari ${h} Jam ${m} Menit ${s} Detik`;},1000);
-function launchConfetti(){for(let i=0;i<50;i++){const confetti=document.createElement('div');confetti.className='confetti-piece';confetti.style.left=Math.random()*100+'%';confetti.style.background=`hsl(${Math.random()*360},70%,60%)`;confetti.style.animationDuration=(3+Math.random()*2)+'s';document.body.appendChild(confetti);setTimeout(()=>{confetti.remove();},5000);}}
-</script>
+
+  <!-- Scripts -->
+  <script>
+    const bgm = document.getElementById('bgm');
+    let playing = false;
+
+    function openInvite() {
+      document.getElementById('opening').style.display = 'none';
+      bgm.play();
+      playing = true;
+      launchConfetti();
+    }
+
+    // Countdown
+    const countDownDate = new Date("May 12, 2026 09:00:00").getTime();
+    const countdownElem = document.getElementById('countdown');
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+
+      if (distance < 0) {
+        countdownElem.innerHTML = "Hari H!";
+        return;
+      }
+
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElem.innerHTML = `${d} Hari ${h} Jam ${m} Menit ${s} Detik`;
+    }, 1000);
+
+    // Confetti
+    function launchConfetti() {
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.background = `hsl(${Math.random() * 360},70%,60%)`;
+        confetti.style.animationDuration = (3 + Math.random() * 2) + 's';
+        document.body.appendChild(confetti);
+        setTimeout(() => { confetti.remove(); }, 5000);
+      }
+    }
+  </script>
 </body>
 </html>
